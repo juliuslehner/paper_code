@@ -1,0 +1,12 @@
+# Ignore files without extensions (Linux executables) but allow files/directories explicitly whitelisted above
+# Ignore everything by default
+*
+
+# Allow all files with extensions
+!*.*
+
+# Allow directories
+!*/
+
+# Allow Makefiles explicitly
+!*/Makefile
