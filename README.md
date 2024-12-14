@@ -6,9 +6,9 @@
 benchmark_suite/
 ├── benchmarking_suite.cpp      # Implementation of the benchmarking suite
 ├── cufft/                      # Performance and precison benchmarking code for cuFFT library
-├── cufftdx/                    # Performance and precison code for cuFFTDx library
-├── fftw/                       # Performance and precison code for FFTW library
-├── vkfft/                      # Performance and precison code for VkFFT library
+├── cufftdx/                    # Performance and precison benchmarking code for cuFFTDx library
+├── fftw/                       # Performance and precison benchmarking code for FFTW library
+├── vkfft/                      # Performance and precison benchmarking code for VkFFT library
 ├── results/                    # Directory for storing benchmarking results
 
 classifier_wrapper/
