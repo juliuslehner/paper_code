@@ -41,15 +41,6 @@ int main() {
                 if (library == "cufftdx" && precision == "half" && dimension == "2d") {
                     continue;
                 }
-                if (library == "vkfft" && precision == "half" && dimension == "2d") {
-                    continue;
-                }
-                if (library == "vkfft" && dimension == "1d") {
-                    continue;
-                }
-                if (library == "cufft" && dimension == "1d") {
-                    continue;
-                }
                 for (int i = 0; i < 500; ++i) {
                     std::srand(static_cast<unsigned>(std::time(0)) + i);
                     double real_lower, real_upper, imag_lower, imag_upper;
