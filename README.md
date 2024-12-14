@@ -13,7 +13,7 @@ benchmark_suite/
 
 classifier_wrapper/
 ├── classifier_model.py         # Main classifier model implementation
-├── predictor_data_gen.py       # Code to generate data with wide range of variances
+├── predictor_data_gen.cpp       # Code to generate data with wide range of variances
 ├── cufft/                      # 1D and 2D transform code for cuFFT
 ├── cufftdx/                    # 1D and 2D transform code for cuFFTDx
 ├── vkfft/                      # 1D and 2D transform code for VkFFT
