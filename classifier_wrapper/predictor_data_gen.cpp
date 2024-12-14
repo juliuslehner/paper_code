@@ -59,64 +59,42 @@ int main() {
 
                     if (i % 50 == 0) {
                         // Zero variance (lower bound equals upper bound)
-                        real_lower = std::rand() % 201 - 100; 
-                        real_upper = real_lower; 
-                        imag_lower = std::rand() % 201 - 100; 
+                        real_lower = std::rand() % 201 - 100;
+                        real_upper = real_lower;
+                        imag_lower = std::rand() % 201 - 100;
                         imag_upper = imag_lower;
                     } else if (i % 8 == 0) {
-                        // Very Large bounds for one part, small bounds for the other
-                        if (swap_ranges) {
-                            real_lower = std::rand() % 2001 - 1000;  
-                            real_upper = real_lower + 100 + std::rand() % 900;  
-                            imag_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
-                            imag_upper = imag_lower + (static_cast<double>(std::rand()) / RAND_MAX * 0.99 + 0.01);
-                        } else {
-                            imag_lower = std::rand() % 2001 - 1000; 
-                            imag_upper = imag_lower + 100 + std::rand() % 900;  
-                            real_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
-                            real_upper = real_lower + (static_cast<double>(std::rand()) / RAND_MAX * 0.99 + 0.01);
-                        }
+                        // Very large bounds between 100 and 1000
+                        real_lower = std::rand() % 2001 - 1000;
+                        real_upper = real_lower + 100 + std::rand() % 900;
+                        imag_lower = std::rand() % 2001 - 1000;
+                        imag_upper = imag_lower + 100 + std::rand() % 900;
                     } else if (i % 6 == 0) {
-                        // Very small bounds for one part, regular bounds for the other
-                        if (swap_ranges) {
-                            real_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
-                            real_upper = real_lower + (static_cast<double>(std::rand()) / RAND_MAX * 0.99 + 0.01);
-                            imag_lower = std::rand() % 1001 - 500;
-                            imag_upper = imag_lower + 0.1 + std::rand() % 100;
-                        } else {
-                            imag_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
-                            imag_upper = imag_lower + (static_cast<double>(std::rand()) / RAND_MAX * 0.99 + 0.01);
-                            real_lower = std::rand() % 1001 - 500;
-                            real_upper = real_lower + 0.1 + std::rand() % 100;
-                        }
+                        // Very small bounds between 0.01 and 1
+                        real_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
+                        real_upper = real_lower + (static_cast<double>(std::rand()) / RAND_MAX * 0.99 + 0.01);
+                        imag_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
+                        imag_upper = imag_lower + (static_cast<double>(std::rand()) / RAND_MAX * 0.99 + 0.01);
                     } else if (i % 4 == 0) {
-                        // Large bounds for one part, medium bounds for the other
-                        if (swap_ranges) {
-                            real_lower = std::rand() % 201 - 100; 
-                            real_upper = real_lower + 50 + std::rand() % 50;  
-                            imag_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
-                            imag_upper = imag_lower + (static_cast<double>(std::rand()) / RAND_MAX * 40 + 10);
-                        } else {
-                            imag_lower = std::rand() % 201 - 100; 
-                            imag_upper = imag_lower + 50 + std::rand() % 50;  
-                            real_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
-                            real_upper = real_lower + (static_cast<double>(std::rand()) / RAND_MAX * 40 + 10);
-                        }
+                        // Large bounds between 50 and 100
+                        real_lower = std::rand() % 201 - 100;
+                        real_upper = real_lower + 50 + std::rand() % 50;
+                        imag_lower = std::rand() % 201 - 100;
+                        imag_upper = imag_lower + 50 + std::rand() % 50;
+                    } else if (i % 3 == 0) {
+                        // Medium bounds between 10 and 50
+                        real_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
+                        real_upper = real_lower + (static_cast<double>(std::rand()) / RAND_MAX * 40 + 10);
+                        imag_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
+                        imag_upper = imag_lower + (static_cast<double>(std::rand()) / RAND_MAX * 40 + 10);
                     } else if (i % 2 == 0) {
-                        // Mixed small and medium bounds
-                        if (swap_ranges) {
-                            real_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
-                            real_upper = real_lower + (static_cast<double>(std::rand()) / RAND_MAX * 9 + 1);
-                            imag_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
-                            imag_upper = imag_lower + (static_cast<double>(std::rand()) / RAND_MAX * 40 + 10);
-                        } else {
-                            imag_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
-                            imag_upper = imag_lower + (static_cast<double>(std::rand()) / RAND_MAX * 9 + 1);
-                            real_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
-                            real_upper = real_lower + (static_cast<double>(std::rand()) / RAND_MAX * 40 + 10);
-                        }
+                        // Small bounds between 1 and 10
+                        real_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
+                        real_upper = real_lower + (static_cast<double>(std::rand()) / RAND_MAX * 9 + 1);
+                        imag_lower = static_cast<double>(std::rand()) / RAND_MAX * 10 - 5;
+                        imag_upper = imag_lower + (static_cast<double>(std::rand()) / RAND_MAX * 9 + 1);
                     } else {
-                        // Regular bounds with slight imbalance
+                        // Regular bounds between 0.1 and 100
                         real_lower = std::rand() % 1001 - 500;
                         real_upper = real_lower + 0.1 + std::rand() % 100;
                         imag_lower = std::rand() % 1001 - 500;
